@@ -45,6 +45,8 @@ namespace MassImageEdit
             }
         }
 
+        private string getExportOutput(string directory) => Path.Combine(directory, "Exported");
+
         private void btnAddFiles_Click(object sender, EventArgs e)
         {
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -54,7 +56,7 @@ namespace MassImageEdit
                 {
                     lstImages.SelectedIndex = 0;
                     var path = Path.GetDirectoryName(lstImages.SelectedItem.ToString());
-                    txtOutput.Text = Path.Combine(path, "Exported");
+                    txtOutput.Text = getExportOutput(path);
                     btnRemove.Enabled = true;
                 }
             }
@@ -92,7 +94,10 @@ namespace MassImageEdit
             var quality = tbQuality.Value;
             var output = txtOutput.Text;
             var width = 2000;
+            var dpi = 96;
+
             int.TryParse(txtWidth.Text, out width);
+            int.TryParse(txtDPI.Text, out dpi);
 
             if (!Directory.Exists(output))
             {
@@ -109,7 +114,7 @@ namespace MassImageEdit
                 var targetFileName = $"{fileName}_optimized_{counter}.jpg";
 
 
-                ImageUtils.SaveImage(imagePath, Path.Combine(output, targetFileName), width, quality);
+                ImageUtils.SaveImage(imagePath, Path.Combine(output, targetFileName), width, quality, dpi);
             }
             progressbar.Visible = false;
         }
@@ -164,6 +169,33 @@ namespace MassImageEdit
             {
                 btnRemove.Enabled = false;
                 pbShow.Image = null;
+            }
+        }
+
+        private void lstImages_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                var lastFileDirectory = "";
+                foreach (string file in files)
+                {
+                    lstImages.Items.Add(file);
+                    lastFileDirectory = System.IO.Path.GetDirectoryName(file);
+                }
+                txtOutput.Text = getExportOutput(lastFileDirectory);
+            }
+        }
+
+        private void lstImages_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
             }
         }
     }

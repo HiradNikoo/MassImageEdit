@@ -14,13 +14,21 @@ namespace MassImageEdit
     public class ImageUtils
     {
 
-        public static void SaveImage(string sourcePath, string targetPath, int width, int quality)
+        public static void SaveImage(string sourcePath, string targetPath, int width, int quality, int dpi = 0)
         {
             using (var sourceImage = System.Drawing.Image.FromFile(sourcePath))
             {
                 var height = (sourceImage.Height * width) / sourceImage.Width;
                 using (var image = new Bitmap(width, height))
                 {
+                    if (dpi > 0)
+                    {
+                        image.SetResolution(dpi, dpi);
+                    } else
+                    {
+                        image.SetResolution(sourceImage.HorizontalResolution, sourceImage.VerticalResolution);
+                    }
+
                     using (var g = Graphics.FromImage(image))
                     {
                         g.DrawImage(sourceImage, new Rectangle(0, 0, width, height));

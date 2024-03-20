@@ -385,7 +385,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_29EBFC3C45594DAA9DC066BCAE09AA18"
             {
-            "Name" = "8:Mass Image Edit.exe"
+            "Name" = "8:Mass Image Edit"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -399,7 +399,7 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4F159877C51742B58F503DC374285868"
             {
-            "Name" = "8:Mass Image Edit.exe"
+            "Name" = "8:Mass Image Edit"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"

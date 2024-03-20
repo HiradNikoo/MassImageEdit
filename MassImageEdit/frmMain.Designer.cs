@@ -54,6 +54,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pnlImage = new System.Windows.Forms.Panel();
             this.chbImageAutoSize = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDPI = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbQuality)).BeginInit();
@@ -64,6 +66,7 @@
             // 
             // lstImages
             // 
+            this.lstImages.AllowDrop = true;
             this.lstImages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lstImages.FormattingEnabled = true;
@@ -73,6 +76,8 @@
             this.lstImages.Size = new System.Drawing.Size(245, 532);
             this.lstImages.TabIndex = 0;
             this.lstImages.SelectedIndexChanged += new System.EventHandler(this.lstImages_SelectedIndexChanged);
+            this.lstImages.DragDrop += new System.Windows.Forms.DragEventHandler(this.lstImages_DragDrop);
+            this.lstImages.DragEnter += new System.Windows.Forms.DragEventHandler(this.lstImages_DragEnter);
             // 
             // groupBox1
             // 
@@ -248,6 +253,8 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.txtDPI);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtWidth);
             this.groupBox2.Controls.Add(this.label3);
@@ -287,9 +294,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 91);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 16);
+            this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Size:";
+            this.label3.Text = "Properties:";
             // 
             // pnlImage
             // 
@@ -314,6 +321,24 @@
             this.chbImageAutoSize.Text = "Zoom Image";
             this.chbImageAutoSize.UseVisualStyleBackColor = true;
             this.chbImageAutoSize.CheckedChanged += new System.EventHandler(this.chbImageAutoSize_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(225, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 16);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "DPI:";
+            // 
+            // txtDPI
+            // 
+            this.txtDPI.Location = new System.Drawing.Point(275, 113);
+            this.txtDPI.Name = "txtDPI";
+            this.txtDPI.Size = new System.Drawing.Size(66, 22);
+            this.txtDPI.TabIndex = 14;
+            this.txtDPI.Text = "96";
+            this.txtDPI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmMain
             // 
@@ -371,6 +396,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtWidth;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtDPI;
     }
 }
 
