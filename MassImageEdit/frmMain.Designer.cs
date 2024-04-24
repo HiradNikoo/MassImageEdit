@@ -49,13 +49,14 @@
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.btnOutput = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtDPI = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtWidth = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlImage = new System.Windows.Forms.Panel();
             this.chbImageAutoSize = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDPI = new System.Windows.Forms.TextBox();
+            this.btnRemoveAll = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbShow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbQuality)).BeginInit();
@@ -83,6 +84,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.btnRemoveAll);
             this.groupBox1.Controls.Add(this.btnRemove);
             this.groupBox1.Controls.Add(this.btnMoveDown);
             this.groupBox1.Controls.Add(this.btnMoveUp);
@@ -271,6 +273,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Settings";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(225, 116);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 16);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "DPI:";
+            // 
+            // txtDPI
+            // 
+            this.txtDPI.Location = new System.Drawing.Point(275, 113);
+            this.txtDPI.Name = "txtDPI";
+            this.txtDPI.Size = new System.Drawing.Size(66, 22);
+            this.txtDPI.TabIndex = 14;
+            this.txtDPI.Text = "96";
+            this.txtDPI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -322,23 +342,16 @@
             this.chbImageAutoSize.UseVisualStyleBackColor = true;
             this.chbImageAutoSize.CheckedChanged += new System.EventHandler(this.chbImageAutoSize_CheckedChanged);
             // 
-            // label5
+            // btnRemoveAll
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(225, 116);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 16);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "DPI:";
-            // 
-            // txtDPI
-            // 
-            this.txtDPI.Location = new System.Drawing.Point(275, 113);
-            this.txtDPI.Name = "txtDPI";
-            this.txtDPI.Size = new System.Drawing.Size(66, 22);
-            this.txtDPI.TabIndex = 14;
-            this.txtDPI.Text = "96";
-            this.txtDPI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnRemoveAll.Enabled = false;
+            this.btnRemoveAll.Location = new System.Drawing.Point(266, 154);
+            this.btnRemoveAll.Name = "btnRemoveAll";
+            this.btnRemoveAll.Size = new System.Drawing.Size(114, 23);
+            this.btnRemoveAll.TabIndex = 6;
+            this.btnRemoveAll.Text = "Remove All";
+            this.btnRemoveAll.UseVisualStyleBackColor = true;
+            this.btnRemoveAll.Click += new System.EventHandler(this.btnRemoveAll_Click);
             // 
             // frmMain
             // 
@@ -398,6 +411,7 @@
         private System.Windows.Forms.TextBox txtWidth;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDPI;
+        private System.Windows.Forms.Button btnRemoveAll;
     }
 }
 

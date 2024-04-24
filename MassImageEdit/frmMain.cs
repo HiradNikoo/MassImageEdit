@@ -58,6 +58,7 @@ namespace MassImageEdit
                     var path = Path.GetDirectoryName(lstImages.SelectedItem.ToString());
                     txtOutput.Text = getExportOutput(path);
                     btnRemove.Enabled = true;
+                    btnRemoveAll.Enabled = true;
                 }
             }
         }
@@ -168,6 +169,7 @@ namespace MassImageEdit
             if (lstImages.SelectedIndex < 0)
             {
                 btnRemove.Enabled = false;
+                btnRemoveAll.Enabled = false;
                 pbShow.Image = null;
             }
         }
@@ -182,6 +184,8 @@ namespace MassImageEdit
                 {
                     lstImages.Items.Add(file);
                     lastFileDirectory = System.IO.Path.GetDirectoryName(file);
+                    btnRemove.Enabled = true;
+                    btnRemoveAll.Enabled = true;
                 }
                 txtOutput.Text = getExportOutput(lastFileDirectory);
             }
@@ -197,6 +201,13 @@ namespace MassImageEdit
             {
                 e.Effect = DragDropEffects.None;
             }
+        }
+
+        private void btnRemoveAll_Click(object sender, EventArgs e)
+        {
+            lstImages.Items.Clear();
+            btnRemove.Enabled = false;
+            btnRemoveAll.Enabled = false;
         }
     }
 }
